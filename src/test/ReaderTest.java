@@ -6,18 +6,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 import constants.IConstants;
-import reader.Reader;
+import reader.MnistReader;
 
 public class ReaderTest {
 	private final int IMAGE_MAGIC = 2051, LABEL_MAGIC = 2049;
 	private final int TRAIN_SIZE = 60000, TEST_SIZE = 10000;
 	private final int ROW_COUNT = 28, COL_COUNT = 28;
-	protected Reader trainReader, testReader;
+	protected MnistReader trainReader, testReader;
 	
 	@Before
 	public void setUp() {
-		this.trainReader 	= new Reader(IConstants.TRAIN_IMAGE_FILE, IConstants.TRAIN_LABEL_FILE);
-		this.testReader 	= new Reader(IConstants.TEST_IMAGE_FILE, IConstants.TEST_LABEL_FILE);
+		this.trainReader 	= new MnistReader(IConstants.TRAIN_IMAGE_FILE, IConstants.TRAIN_LABEL_FILE);
+		this.testReader 	= new MnistReader(IConstants.TEST_IMAGE_FILE, IConstants.TEST_LABEL_FILE);
 	}
 	
 	@Test
