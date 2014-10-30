@@ -51,7 +51,6 @@ public class Reader {
 		int imageSize = numRows * numCols;
 		
 		instances = new LinkedList<>();
-		instances.forEach(x -> System.out.println(x));
 		for(int i = 0; i < labelSize; i++) {
 			int label = labelData[OFFSET_SIZE + ITEMS_SIZE + i];
 			byte[] image = Arrays.copyOfRange(imageData, (i * imageSize) + IMAGE_OFFSET, (i * imageSize) + IMAGE_OFFSET + imageSize);
