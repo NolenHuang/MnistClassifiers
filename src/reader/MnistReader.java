@@ -1,6 +1,6 @@
 package reader;
 
-import instance.MnistInstance;
+import instance.MnistVector;
 
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
@@ -25,7 +25,7 @@ public class MnistReader {
 	private static final int IMAGE_OFFSET = 16;
 
 	protected int labelMagic, imageMagic, labelSize, imageSize, numCols, numRows;
-	protected List<MnistInstance> instances;
+	protected List<MnistVector> instances;
 	
 	public MnistReader(String imageFile, String labelFile) {
 		this.init(Paths.get(imageFile), Paths.get(labelFile));
@@ -54,7 +54,7 @@ public class MnistReader {
 		for(int i = 0; i < labelSize; i++) {
 			int label = labelData[OFFSET_SIZE + ITEMS_SIZE + i];
 			byte[] image = Arrays.copyOfRange(imageData, (i * imageSize) + IMAGE_OFFSET, (i * imageSize) + IMAGE_OFFSET + imageSize);
-			instances.add(new MnistInstance(image, label));
+			instances.add(new MnistVector(image, label));
 		}
 		
 	}
@@ -83,7 +83,7 @@ public class MnistReader {
 		return numRows;
 	}
 	
-	public List<MnistInstance> getInstances() {
+	public List<MnistVector> getInstances() {
 		return instances;
 	}
 }
