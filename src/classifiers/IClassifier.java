@@ -1,9 +1,9 @@
 package classifiers;
 
-import instance.MnistVector;
+import instance.vectors.IVector;
 
 import java.util.List;
 
 public interface IClassifier {
-	public void buildClassifier(List<MnistVector> trainingSet);
+	public void buildClassifier(List<IVector> trainingSet);
 }

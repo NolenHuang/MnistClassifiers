@@ -1,7 +1,7 @@
 package main;
 
 import instance.IntVector;
-import instance.MnistVector;
+import instance.vectors.IVector;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import constants.IConstants;
 
 public class ClassifierMain {
 	public static void main(String[] args) {
-		List<MnistVector> trainingSet = new MnistReader(IConstants.TRAIN_IMAGE_FILE, IConstants.TRAIN_LABEL_FILE).getInstances();
+		List<IVector> trainingSet = new MnistReader(IConstants.TRAIN_IMAGE_FILE, IConstants.TRAIN_LABEL_FILE).getInstances();
 		IClassifier knn = new KNN();
 		knn.buildClassifier(trainingSet);
 		

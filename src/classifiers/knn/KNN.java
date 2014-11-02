@@ -1,6 +1,6 @@
 package classifiers.knn;
 
-import instance.MnistVector;
+import instance.vectors.IVector;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import classifiers.IClassifier;
 
 public class KNN implements IClassifier {
 	protected final int k;
-	protected List<MnistVector> trainingSet;
+	protected List<IVector> trainingSet;
 
 	public KNN(int k) {
 		super();
@@ -20,7 +20,7 @@ public class KNN implements IClassifier {
 	}
 
 	@Override
-	public void buildClassifier(List<MnistVector> trainingSet) {
+	public void buildClassifier(List<IVector> trainingSet) {
 		this.trainingSet = trainingSet;
 	}
 
