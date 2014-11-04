@@ -1,30 +1,49 @@
 package instance;
 
 import instance.vectors.IVector;
-import it.unimi.dsi.fastutil.ints.Int2IntMap;
-import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 
+import java.util.stream.IntStream;
+
 public class IntVector extends IVector {
-	protected Int2IntMap data;
+	protected int[] data;
 
 	public IntVector(int[] data) {
-		this.data = new Int2IntOpenHashMap();
-		this.data.defaultReturnValue(0);
-		
-		int k = 0;
-		for( int v : data )
-			this.data.put(k++, v);
+		this.data = data;
 	}
 
 	@Override
 	public IntSet keySet() {
-		return data.keySet();
+		return new IntOpenHashSet( data );
 	}
 
 	@Override
 	public double get(int k) {
-		return data.get(k);
+		return data[k];
+	}
+	
+	@Override
+	public int getLabel() {
+		return 0;
+	}
+
+//	@Override
+//	public IntIterable getKeyIterable() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+	
+	@Override
+	public IntStream getKeyStream() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

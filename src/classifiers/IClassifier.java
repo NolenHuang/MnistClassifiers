@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IClassifier {
 	public void buildClassifier(List<IVector> trainingSet);
+	public int classify(IVector v);
 }
