@@ -1,7 +1,10 @@
 package instance;
 
 import instance.vectors.IVector;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
+
+import java.util.stream.IntStream;
 
 public class MnistVector extends IVector {
 	protected int 		label;
@@ -14,12 +17,12 @@ public class MnistVector extends IVector {
 
 	@Override
 	public IntSet keySet() {
-		return null;
+		return new IntOpenHashSet(IntStream.range(0, features.length).toArray());
 	}
 
 	@Override
 	public double get(int k) {
-		return 0;
+		return features[k];
 	}
 	
 }
